@@ -6,6 +6,7 @@ This project was for my C++ course, where I learned the deep theory and details 
 
 ### Annotating the BASIC4TRACE output (line #, basic 4 call, variable name & where created/found from):
 
+```
 [1] 15,constructor,x
 [2] 16,constructor,y
 [3] 18,copy constructor,a
@@ -31,6 +32,7 @@ This project was for my C++ course, where I learned the deep theory and details 
 [23] 20,destructor,z
 [24] 20,destructor,y
 [25] 20,destructor,x
+```
 
 ### Changes to BASIC4TRACE output after changing test5.cpp's add() to pass by const reference ( static MyString add(const MyString& a, const MyString& b) ):
 
@@ -42,6 +44,7 @@ The flag disables the optimization of not using copy constructors unnecessarily.
 
 ### Analyzing which copy calls are replaced by move calls after implementing move operations:
 
+```
 BASIC4TRACE: (0x7ffd5dcaf2c0)->MyString(const char *)
 BASIC4TRACE: (0x7ffd5dcaf2d0)->MyString(const char *)
 BASIC4TRACE: (0x7ffd5dcaf300)->MyString(const MyString&)
@@ -75,5 +78,6 @@ one and two
 BASIC4TRACE: (0x7ffd5dcaf2e0)->~MyString()
 BASIC4TRACE: (0x7ffd5dcaf2d0)->~MyString()
 BASIC4TRACE: (0x7ffd5dcaf2c0)->~MyString()
+```
 
 Many copy constructions are replaced by move constructions, as reflected by MyString(MyString&&). Copy operations were sometimes replaced by move operations when there existed temporary objects. Specifically, when operator+ attempts to return temp (local), since the object is temporary, we use a move operator here instead of a copy operator. This is safe because the data pointer is transferred and the old one is replaced by a nullptr, which can be safely deleted on its own, and separately from when the transferred data object might need to be destructed. The temporary will not be used again, so this also ensures safety. The copy constructor calls not replaced by move constructor calls were when we were constructing named objects, as these cannot bind to MyString&& (for move construction). This ensures we keep original data and follow intended behavior.
