@@ -1,8 +1,8 @@
-<h3>A C++ implementation of a custom string class (MyString) built on manual heap memory management. Covers the Rule of Five — constructor, destructor, copy constructor, copy assignment, move constructor, and move assignment — as well as operator overloading for comparison (<, >, ==, etc.) and concatenation (+, +=). Explores object construction/destruction tracing, compiler copy elision (-fno-elide-constructors), and valgrind memory leak testing.
+#A C++ implementation of a custom string class (MyString) built on manual heap memory management. Covers the Rule of Five — constructor, destructor, copy constructor, copy assignment, move constructor, and move assignment — as well as operator overloading for comparison (<, >, ==, etc.) and concatenation (+, +=). Explores object construction/destruction tracing, compiler copy elision (-fno-elide-constructors), and valgrind memory leak testing.
 
-This project was for my C++ course, where I learned the deep theory and details of the language. Below are my theory responses to several questions.</h3>
+#This project was for my C++ course, where I learned the deep theory and details of the language. Below are my theory responses to several questions.
 
-<b>Annotating the BASIC4TRACE output (line #, basic 4 call, variable name & where created/found from):></b>
+**Annotating the BASIC4TRACE output (line #, basic 4 call, variable name & where created/found from):**
 
 [1] 15,constructor,x
 [2] 16,constructor,y
@@ -30,15 +30,15 @@ This project was for my C++ course, where I learned the deep theory and details 
 [24] 20,destructor,y
 [25] 20,destructor,x
 
-<b>Changes to BASIC4TRACE output after changing test5.cpp's add() to pass by const reference ( static MyString add(const MyString& a, const MyString& b) ):</b>
+**Changes to BASIC4TRACE output after changing test5.cpp's add() to pass by const reference ( static MyString add(const MyString& a, const MyString& b) ):**
 
 Passing by reference rather than value makes it so that we don't have to copy the arguments. So, the BASIC4TRACE output has fewer MyString(const MyString&) lines and fewer destructor lines for when these copies must disappear.
 
-<b>What a -fno-elide-constructors flag does in Makefile:</b>
+**What a -fno-elide-constructors flag does in Makefile:**
 
 The flag disables the optimization of not using copy constructors unnecessarily. This is reflected in the log's absence of creating a local result, copying, and destructing, especially when working within operator+.
 
-<b>Analyzing which copy calls are replaced by move calls after implementing move operations:</b>
+**Analyzing which copy calls are replaced by move calls after implementing move operations:**
 
 BASIC4TRACE: (0x7ffd5dcaf2c0)->MyString(const char *)
 BASIC4TRACE: (0x7ffd5dcaf2d0)->MyString(const char *)
