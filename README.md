@@ -4,7 +4,7 @@ This project was for my C++ course, where I learned the deep theory and details 
 
 ---
 
-**Annotating the BASIC4TRACE output (line #, basic 4 call, variable name & where created/found from):**
+### Annotating the BASIC4TRACE output (line #, basic 4 call, variable name & where created/found from):
 
 [1] 15,constructor,x
 [2] 16,constructor,y
@@ -32,15 +32,15 @@ This project was for my C++ course, where I learned the deep theory and details 
 [24] 20,destructor,y
 [25] 20,destructor,x
 
-**Changes to BASIC4TRACE output after changing test5.cpp's add() to pass by const reference ( static MyString add(const MyString& a, const MyString& b) ):**
+### Changes to BASIC4TRACE output after changing test5.cpp's add() to pass by const reference ( static MyString add(const MyString& a, const MyString& b) ):
 
 Passing by reference rather than value makes it so that we don't have to copy the arguments. So, the BASIC4TRACE output has fewer MyString(const MyString&) lines and fewer destructor lines for when these copies must disappear.
 
-**What a -fno-elide-constructors flag does in Makefile:**
+### What a -fno-elide-constructors flag does in Makefile:
 
 The flag disables the optimization of not using copy constructors unnecessarily. This is reflected in the log's absence of creating a local result, copying, and destructing, especially when working within operator+.
 
-**Analyzing which copy calls are replaced by move calls after implementing move operations:**
+### Analyzing which copy calls are replaced by move calls after implementing move operations:
 
 BASIC4TRACE: (0x7ffd5dcaf2c0)->MyString(const char *)
 BASIC4TRACE: (0x7ffd5dcaf2d0)->MyString(const char *)
