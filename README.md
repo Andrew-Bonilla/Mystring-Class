@@ -1,6 +1,8 @@
-# A C++ implementation of a custom string class (MyString) built on manual heap memory management. Covers the Rule of Five — constructor, destructor, copy constructor, copy assignment, move constructor, and move assignment — as well as operator overloading for comparison (<, >, ==, etc.) and concatenation (+, +=). Explores object construction/destruction tracing, compiler copy elision (-fno-elide-constructors), and valgrind memory leak testing.
+A C++ implementation of a custom string class (MyString) built on manual heap memory management. Covers the Rule of Five — constructor, destructor, copy constructor, copy assignment, move constructor, and move assignment — as well as operator overloading for comparison (<, >, ==, etc.) and concatenation (+, +=). Explores object construction/destruction tracing, compiler copy elision (-fno-elide-constructors), and valgrind memory leak testing.
 
-# This project was for my C++ course, where I learned the deep theory and details of the language. Below are my theory responses to several questions.
+This project was for my C++ course, where I learned the deep theory and details of the language. Below are my theory responses to several questions.
+
+---
 
 **Annotating the BASIC4TRACE output (line #, basic 4 call, variable name & where created/found from):**
 
